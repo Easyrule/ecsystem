@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<header>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+  <link href="homepage.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+<style>
+canvas{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+</style>
+</header>
+
+
+<body>
+
+  <header>
+    <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <!-- <label><img src="logo.png"></label> -->
+      <label class="logoh"><img src="assets\img\logo ecs.png">ECS</label>
+      <ul>
+
+
+        <li><a style="color:black;text-decoration: none;" href="homeEmployer.html" id="userlink">Home</a></li>
+        <div class="dropdown">
+          <button class="dropbtn">Home</button>
+          <div class="dropdown-content">
+            <a href="cdashboard.html">Dashboard</a>
+            <a href="cprofile.html">Profile</a>
+            <a href="centerexam.html">Exam</a>
+          </div>
+        </div>
+        
+        <li><a style="text-decoration: none;" href="homepage.html">Exit</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+
+
+  <section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row">
+        
+        
+        <div class="input-group">
+            <span class="input-group-text">Subject Code</span>
+            <input type="text" id="kod" class="form-control">
+            <button class="btn btn-outline-secondary" type="button" id="enter">Enter</button>
+          </div>
+        
+
+        
+      </div>
+
+    </div>
+  </section>
+
+
+  <div class="container">
+   <div class="row">
+     <div class="col">
+      <div id="myDynamicTable"></div>
+     </div>
+     <div class="col">
+      <table class="table">
+         <thead>
+           <tr>
+             <th scope="col">#</th>
+             <th scope="col">First</th>
+             <th scope="col">Last</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <th scope="row">1</th>
+             <td>Mark</td>
+             <td>Otto</td>
+           </tr>
+           <tr>
+             <th scope="row">2</th>
+             <td>Jacob</td>
+             <td>Thornton</td>
+           </tr>
+           <tr>
+             <th scope="row">3</th>
+             <td>Thornton</td>
+             <td>Thornton</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+     <div class="col">
+       Column
+     </div>
+   </div>
+ </div>
+
+ <button id="apo" type="button" onclick="takeASnap()">take a snapshot</button>
+
+ <button id="apokono" onclick="tableCreate()"> Try </button>
+
+ <img src="" id="tableBanner" />
+
+ <img src="" id="tableBanner1" />
+
+
+
+
+  <!-- src="https://cdn.pixabay.com/photo/2015/03/16/19/20/wall-676461_960_720.jpg" -->
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script> 
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-storage.js"></script> 
+  <script defer src="face-api.min.js"></script>
+  <script defer src="testimage.js"></script>
+
+
+<script>
+  var dataImage = localStorage.getItem('imgData');
+bannerImg = document.getElementById('tableBanner');
+bannerImg.src = "data:image/png;base64," + dataImage;
+
+var dataImage1 = localStorage.getItem('imgData1');
+bannerImg = document.getElementById('tableBanner1');
+bannerImg.src = "data:image/png;base64," + dataImage1;
+
+
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

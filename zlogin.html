@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <!-- <h1> Log in form</h1> -->
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  
+
+  <!-- Template Main CSS File -->
+  <link href="register.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+
+
+
+</head>
+<!-- style="background-image: url('https://cdn.pixabay.com/photo/2017/07/25/22/54/lego-2539844_960_720.jpg');"style="background-color: rgba(24, 6, 185, 0.8);" -->
+
+<body>
+    <content>
+        <section class="vh-200" style="background-color: rgba(4, 73, 249, 0.8);">
+          <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col-lg-12 col-xl-11">
+                <div class="card text-black" style="border-radius: 25px;">
+                  <div class="card-body p-md-5">
+                    <div class="row justify-content-center">
+                      <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign in</p>
+
+                  <form>
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="form3Example3c">Index Number / Staff ID</label>
+                        <input type="username" class="form-control" id="matric" 
+                          placeholder="Enter Matric Number">
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="form3Example4c">Password</label>
+                        <input type="password" class="form-control" id="pass" placeholder="Password">
+                      </div>
+                    </div>
+
+                  
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+
+
+                        <div class="container">
+                          <div class="row">
+                            <div class="col">
+                            
+                              <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="ExamInvigilator">
+                          <label class="form-check-label" for="flexSwitchCheckDefault">Exam Invigilator</label>
+                        </div>
+
+                        
+
+
+                            </div>
+                            <div class="col">
+                             
+                                   <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="Lecturer">
+                          <label class="form-check-label" for="flexSwitchCheckDefault">Lecturer</label>
+                        </div>
+
+
+                            </div>
+                          </div>
+                          </div>
+
+
+
+                        
+
+                   
+
+
+                        
+                        <label class="form-check-label">
+                          <br/>
+                          Don't have an account?
+                          <a href="register.html">Register here</a>
+                        </p>
+                      </div>
+                    </div>
+
+                    
+
+                    <div class="d-flex justify-content-center">
+                      <button type="button" id="sub_btn" class="btn btn-primary btn-lg">Log in</button>
+                    </div>
+    
+                      
+    
+                      </div>
+                      <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                        <img class="img-fluid" src='assets/img/Quad.gif' alt="Sample image">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </content>
+  
+
+
+
+      <script src=
+"https://www.gstatic.com/firebasejs/3.7.4/firebase.js">
+	</script>
+    
+  
+
+
+
+
+
+  <script type="module">
+
+    //Import the functions you need from the SDKs you need
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyB9tp7nBfMxsqBqgyQsCXE8gDhx7BSAaIk",
+    authDomain: "e-cs-8e95e.firebaseapp.com",
+    databaseURL: "https://e-cs-8e95e-default-rtdb.firebaseio.com",
+    projectId: "e-cs-8e95e",
+    storageBucket: "e-cs-8e95e.appspot.com",
+    messagingSenderId: "648134779146",
+    appId: "1:648134779146:web:c48d9e26dfeaa1d04d9af3"
+  };
+
+
+    // Initialize Firebase
+
+    const app = initializeApp(firebaseConfig);
+    firebase.initializeApp(firebaseConfig);
+
+
+    import { getDatabase, ref, set, child, get }
+      from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+
+    const db = getDatabase();
+
+    const matric = document.getElementById('matric');
+    const pass = document.getElementById('pass');
+    const submit = document.getElementById('sub_btn');
+
+    function signin(emaildb){
+
+
+const auth = firebase.auth();
+
+auth.signOut();
+
+var email = emaildb;
+var password = document.getElementById("pass");
+
+const promise = auth.signInWithEmailAndPassword(email, password.value);
+promise.catch(e => alert(e.message));
+
+var currentUser = firebase.auth().currentUser;
+
+if(currentUser==null){
+   // document.getElementById("lpassword") = "";
+   console.log("nayyy");
+    
+
+}
+else{
+  
+   // window.location.href = "/homepage.html";
+   console.log("yeayy");
+    
+  
+   
+
+
+  
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+    function AuthenticateUser() {
+      const dbref = ref(db);
+
+      if(document.getElementById('ExamInvigilator').checked){
+
+        get(child(dbref, "ExamInvigilator/" + matric.value)).then((snapshot) => {
+          
+          if (snapshot.exists()) {
+
+            let dbpass = decPass(snapshot.val().password);
+            let dbemail = snapshot.val().email;
+
+
+            signin(dbemail);
+
+
+
+
+
+
+            if (dbpass == pass.value) {
+              login(snapshot.val());
+            }
+            else {
+              alert("wrong password");
+            }
+          }
+          else {
+            alert("user does not exist");
+          }
+        });
+
+
+        
+      }
+
+      else if(document.getElementById('Lecturer').checked){
+
+        get(child(dbref, "Lecturer/" + matric.value)).then((snapshot) => {
+          
+          if (snapshot.exists()) {
+
+            let dbpass = decPass(snapshot.val().password);
+            let dbemail = snapshot.val().email;
+
+
+            signin(dbemail);
+
+
+
+
+
+
+            if (dbpass == pass.value) {
+              login(snapshot.val());
+            }
+            else {
+              alert("wrong password");
+            }
+          }
+          else {
+            alert("user does not exist");
+          }
+        });
+
+
+
+      }
+
+      else{
+
+
+        get(child(dbref, "Candidate/" + matric.value)).then((snapshot) => {
+          if (snapshot.exists()) {
+            let dbpass = decPass(snapshot.val().password);
+            let dbemail = snapshot.val().email;
+
+
+            signin(dbemail);
+
+
+
+
+
+
+            if (dbpass == pass.value) {
+              login(snapshot.val());
+            }
+            else {
+              alert("wrong password");
+            }
+          }
+          else {
+            alert("user does not exist");
+          }
+        });
+
+
+      }
+
+
+      
+        
+      
+
+     
+
+
+    }
+
+    function decPass(dbpass) {
+      var pass12 = CryptoJS.AES.decrypt(dbpass, pass.value);
+      return pass12.toString(CryptoJS.enc.Utf8);
+    }
+
+
+    function login(user) {
+
+      console.log(user)
+
+       
+          console.log("should keep it");
+          localStorage.setItem('keepLoggedIn', 'yes');
+          localStorage.setItem('user', JSON.stringify(user));
+
+          if(document.getElementById('Lecturer').checked){
+            window.location = "Lhomepagep.html";
+          }
+          else if(document.getElementById('ExamInvigilator').checked){
+            window.location = "eihomepageEi.html";
+          }
+          else{
+            window.location = "chomepage.html";
+          }
+          
+        
+
+        
+      
+
+    
+
+    }
+
+    submit.addEventListener('click', AuthenticateUser);
+
+
+
+
+
+
+
+
+
+  </script>
+
+
+
+
+
+
+
+
+
+</body>
+
+
+</html>

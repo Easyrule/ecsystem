@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EasyJob</title>
+    <link rel="stylesheet" href="main.css" type="text/css" >
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+    
+
+    
+     <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <!-- <label><img src="logo.png"></label> -->
+        <label class="logo"><img src="logo.png">EasyJob</label>
+        <ul>
+            <li><a style="color:black;text-decoration: none;" href="homeEmployee.html">Home</a></li>
+            <div class="dropdown">
+                <button class="dropbtn" id="userlink"></button>
+                <div class="dropdown-content">
+                    <a href="employeeProfile.html">Profile</a>
+                    <a href="JobStatus.html">Job Status</a>
+                    <a href="ewallet.html">My Wallet</a>
+                    <a href="progressemployee.html">Progress</a>
+                </div>
+            </div>
+            <li><a style="text-decoration: none;" id="signoutlink">Sign Out</a></li>
+        </ul>
+    </nav> 
+
+    <content>
+
+
+        
+        <!--Home Section-->
+        <section id="home" class="homepage">
+
+            <button disabled id="apo">
+                take a snapshot</button>
+              <video></video>
+
+              
+             <div class="contentarea">
+                
+                <div class="camera">
+                    <video id="video">Video stream not available.</video>
+                </div>
+
+                <div>
+                    <button id="startbutton">Take photo</button>
+                </div>
+                <canvas id="canvas">
+                    
+                </canvas>
+                <div class="output">
+                    <img id="photo" alt="The screen capture will appear in this box.">
+                    <input class="btn btn-primary" type="submit" value="Submit">
+                </div>
+            </div> 
+
+            <button type="button " onclick="uploadimage() " >
+                Upload Image
+                </button>
+
+
+           
+          
+            
+        </section>
+
+        
+
+        
+    </content>
+
+    
+
+
+
+ 
+
+    <script>
+
+
+const vid = document.querySelector('video');
+navigator.mediaDevices.getUserMedia({video: true}) // request cam
+.then(stream => {
+  vid.srcObject = stream; // don't use createObjectURL(MediaStream)
+  return vid.play(); // returns a Promise
+})
+.then(()=>{ // enable the button
+  const btn = document.getElementById('apo');
+  btn.disabled = false;
+  btn.onclick = e => {
+    takeASnap()
+    .then(download);
+  };
+});
+
+function takeASnap(){
+  const canvas = document.createElement('canvas'); // create a canvas
+  const ctx = canvas.getContext('2d'); // get its context
+  canvas.width = vid.videoWidth; // set its size to the one of the video
+  canvas.height = vid.videoHeight;
+  ctx.drawImage(vid, 0,0); // the video
+
+  console.log("This is"+ canvas);
+  return new Promise((res, rej)=>{
+    canvas.toBlob(res, 'image/jpeg'); // request a Blob from the canvas
+  });
+}
+function download(blob){
+  // uses the <a download> to download a Blob
+  let a = document.createElement('a'); 
+
+  a.href = URL.createObjectURL(blob);
+  console.log(a)
+
+
+  a.download = 'screenshot.jpg';
+  document.body.appendChild(a);
+  a.click();
+}
+
+
+
+    </script>
+
+    <script>
+
+
+(function() {
+
+var width = 320; // We will scale the photo width to this
+var height = 0; // This will be computed based on the input stream
+
+var streaming = false;
+
+var video = null;
+var canvas = null;
+var photo = null;
+var startbutton = null;
+
+function startup() {
+    video = document.getElementById('video');
+    canvas = document.getElementById('canvas');
+    photo = document.getElementById('photo');
+    startbutton = document.getElementById('startbutton');
+
+    navigator.mediaDevices.getUserMedia({
+            video: true,
+            audio: false
+        })
+        .then(function(stream) {
+            video.srcObject = stream;
+            video.play();
+        })
+        .catch(function(err) {
+            console.log("An error occurred: " + err);
+        });
+
+    video.addEventListener('canplay', function(ev) {
+        if (!streaming) {
+            height = video.videoHeight / (video.videoWidth / width);
+
+            if (isNaN(height)) {
+                height = width / (4 / 3);
+            }
+
+            video.setAttribute('width', width);
+            video.setAttribute('height', height);
+            canvas.setAttribute('width', width);
+            canvas.setAttribute('height', height);
+            streaming = true;
+        }
+    }, false);
+
+    startbutton.addEventListener('click', function(ev) {
+        takepicture();
+        ev.preventDefault();
+    }, false);
+
+    clearphoto();
+}
+
+
+function clearphoto() {
+    var context = canvas.getContext('2d');
+    context.fillStyle = "#AAA";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    var data = canvas.toDataURL('image/png');
+    photo.setAttribute('src', data);
+}
+
+function takepicture() {
+    var context = canvas.getContext('2d');
+    if (width && height) {
+        canvas.width = width;
+        canvas.height = height;
+        context.drawImage(video, 0, 0, width, height);
+
+        var data = canvas.toDataURL('image/png');
+
+        photo.setAttribute('src', data);
+        
+
+
+        
+
+
+
+
+
+    } else {
+        clearphoto();
+    }
+}
+
+window.addEventListener('load', startup, false);
+})();
+
+
+
+
+    </script> 
+
+
+
+<script>
+
+
+
+    // adding firebase data
+    var firebaseConfig = {
+      apiKey: "AIzaSyB4hN8Ymb96TdyBvqIsIZXNIqArfakXZLY",
+      authDomain: "easyjob-a98f3.firebaseapp.com",
+      databaseURL: "https://easyjob-a98f3-default-rtdb.firebaseio.com",
+      projectId: "easyjob-a98f3",
+      storageBucket: "easyjob-a98f3.appspot.com",
+      messagingSenderId: "21673523971",
+      appId: "1:21673523971:web:9702e1ac4907c305f70736"
+        };
+    firebase.initializeApp(firebaseConfig);
+    var messagesRef = firebase.database().ref('Checking');
+    document.getElementById(
+        'contactForm').addEventListener('submit', submitForm);
+    //uploading file in storage
+    function uploadimage(){
+    var type = getInputVal('types');
+    var storage = firebase.storage();
+    var file=canvas.toDataURL('image/png');
+    var storageref=storage.ref();
+    var thisref=storageref.child(type).child(file.name).put(file);
+    thisref.on('state_changed',function(snapshot) {
+    
+    
+    }, function(error) {
+    
+    }, function() {
+    // Uploaded completed successfully, now we can get the download URL
+    thisref.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+        //getting url of image
+        document.getElementById("url ").value=downloadURL;
+        alert('uploaded successfully');
+        saveMessage(canvas.toDataURL('image/png'));
+    });
+    });
+    
+    // Get values
+    var url = canvas.toDataURL('image/png');
+    
+    // Save message
+    // saveMessage(url);
+    }
+    function getInputVal(id){
+        var data = canvas.toDataURL('image/png');
+
+    
+    }
+    
+    
+    // Function to get get form values
+    function getInputVal(id){
+    return document.getElementById(id).value;
+    }
+    
+    // Save message to firebase database
+    function saveMessage(url){
+    var newMessageRef = messagesRef.push();
+    newMessageRef.set({
+    imageurl:url,
+    });
+    }
+    </script>
+
+
+
+
+</body>
+
+</html>

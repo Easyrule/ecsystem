@@ -1,0 +1,508 @@
+/** General **/
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+body{
+      font-family: "Poppins", sans-serif;
+}
+html{
+      scroll-behavior:smooth;
+}
+
+/** Navigation Menu **/
+nav{
+     background-color: rgba(47, 118, 212, 0.63);
+     /* background-color: rgba(0,0,0,.2); */
+      height: 80px;
+      width: 100%;
+}
+label img{
+      width: 25%;
+      padding: 0px;
+}
+label.logo{
+      color: whitesmoke;
+      font-size: 35px;
+      line-height: 80px;
+      padding: 0px 50px;
+      font-weight: bold;
+}
+nav ul{
+      float: right;
+      margin-right: 20px;
+}
+nav ul li{
+      display: inline-block;
+      line-height: 80px;
+      margin: 0 5px;
+}
+nav ul li a{
+      color: black;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 7px 15px;
+      border-radius: 3px;
+      text-align: center;
+}
+.dropbtn{
+      background: none;
+      color: black;
+      padding: 7px 15px;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 3px;
+      border: none;
+}
+.dropbtn:focus{
+      border: none;
+      outline: none;
+}
+.dropdown{
+      position: relative;
+      display: inline-block;
+}
+.dropdown-content a{
+      background-color: whitesmoke;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+}
+.dropdown-content a:hover{
+      background-color: lightcyan;
+}
+.dropdown:hover .dropdown-content{
+      display: block;
+}
+.dropdown:hover .dropbtn{
+      background-color: lightcyan;
+      transition: .5s;
+}
+.dropdown-content{
+      display: none;
+      position: absolute;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+}
+a.active,a:hover{
+      background-color: lightcyan;
+      transition: .5s;
+}
+.checkbtn{
+      font-size: 30px;
+      color: beige;
+      float: right;
+      line-height: 80px;
+      margin-right: 40px;
+      cursor: pointer;
+      display: none;
+}
+#check{
+    display: none;
+}
+@media (max-width: 952px){
+    label.logo{
+      font-size: 30px;
+      padding-left: 50px;
+    }
+    nav ul li a{
+      font-size: 16px;
+    }
+}
+@media (max-width: 858px){
+    .checkbtn{
+        display: block;
+    }
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: whitesmoke;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav ul li a{
+        font-size: 20px;
+    }
+    a:hover,a.active, .dropdown:hover{
+        background: none;
+        color: rgba(47, 118, 212, 0.63);
+      }
+      #check:checked ~ ul{
+        left: 0;
+      }
+}
+
+/** Section General **/
+section{
+      padding: 60px 0; 
+      /* overflow: hidden; */
+} 
+
+/** Banner Area **/
+.banner-area{
+     // background: url(homepage.jpg) center;
+      background-size: cover;
+}
+.banner-area .overlay-bg {
+      opacity: .95;
+}
+.banner-content{
+      margin-top: -90px;
+      text-align: center;
+}
+.banner-content h1{
+      font-size: 48px;
+      font-weight: 300;
+      line-height: 1em;
+      margin-top: 20px;
+}
+.banner-content h1 span {
+      color: #49e4fa;
+}
+@media (max-width: 991.98px) {
+      .banner-content h1 {
+        font-size: 36px;
+      }
+    }
+    
+    @media (max-width: 991.98px) {
+      .banner-content h1 br {
+        display: none;
+      }
+    }
+    
+    @media (max-width: 1199.98px) {
+      .banner-content h1 {
+        font-size: 45px;
+      }
+    }
+    
+    @media (max-width: 414px) {
+      .banner-content h1 {
+        font-size: 32px;
+      }
+    }
+    
+    .banner-content p span {
+      color: #49e4fa;
+    }
+    
+    @media (max-width: 1280px) {
+      .banner-content br {
+        display: none;
+      }
+    }
+    
+    .banner-content .form-wrap {
+      background-color: #a998f6;
+      border: 1px solid #b8aaf3;
+      padding: 20px 0;
+      margin: 40px 0;
+    }
+    
+    .banner-content .form-wrap .nice-select {
+      width: 100%;
+    }
+    
+    .banner-content .form-wrap .form-control {
+      height: 40px;
+      border-radius: 0;
+      font-size: 14px;
+    }
+    
+    .banner-content .form-wrap .btn-info {
+      background-color: #49e4fa;
+      width: 100%;
+      height: 100%;
+      color: #fff;
+      border-radius: 0;
+      border: none;
+      text-transform: uppercase;
+    }
+    
+    .banner-content .form-wrap .btn-info {
+      font-size: 14px;
+    }
+    
+    @media (max-width: 960px) {
+      .banner-content .form-cols {
+        margin-bottom: 30px;
+      }
+      .banner-content .form-cols:last-child {
+        margin-bottom: 0;
+      }
+    }
+    
+/** Home Section **/
+.homepage{
+      background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://cdn.pixabay.com/photo/2012/03/03/23/06/wall-21534_960_720.jpg') no-repeat;
+      background-size: cover;
+      /* color: #fff; */
+      background-position: center;
+      height: 100vh;
+}
+.homepage h1{
+      margin: 0;
+      color: whitesmoke;
+      font-family: "Poppins", sans-serif;
+      font-size: 50px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      margin-top: 150px;
+      letter-spacing: 1px;
+      line-height: 30px;
+}
+.homepage h1 span{
+      color: deepskyblue;
+}
+.homepage h2{
+      color: lightskyblue;
+      font-size: 50px;
+      font-weight: 500;
+      text-align: center;
+}
+.homepage .form-control {
+      padding: 0 40px;
+      border: 1px solid transparent;
+      text-align: center;
+}
+.homepage .form-group {
+      margin-bottom: 0px!important;
+      text-align: center;
+}
+.homepage .content{
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      margin-bottom: 30px;   
+      width: 100%;
+}
+.popular-jobs a {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 5px 10px;
+      color: #fff;
+      margin: 0 5px;
+      border-radius: 4px;
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      -ms-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+}
+.popular-jobs a:hover {
+      background: deepskyblue;
+      border-color: deepskyblue;
+      color: #fff;
+}
+
+/** Job Status Page **/
+.job .container{
+      margin-bottom: 30px;   
+      width: 100%;
+}
+.job .single-post{
+      padding: 30px;
+      background-color: #f9f9ff;
+      margin-bottom: 30px;
+}
+.job .single-post h6 {
+      margin-top: 10px;
+      color: #222;
+      font-size: 14px;
+      font-weight: 300;
+      margin-bottom: 15px;
+}
+@media (max-width: 414px) {
+      .job .single-post h6 {
+        font-size: 10px;
+      }
+}
+.job .single-post .btns li {
+      display: inline-block;
+      background-color: #fff;
+      border: 1px solid #eee;
+      padding: 10px 15px;
+      -webkit-transition: all 0.3s ease 0s;
+      -moz-transition: all 0.3s ease 0s;
+      -o-transition: all 0.3s ease 0s;
+      transition: all 0.3s ease 0s;
+
+}
+.job .single-post .btns li i, .job .single-post .btns li a {
+      font-weight: 700;
+      color: cornflowerblue;
+}
+.job .single-post .btns li:hover {
+      background-color: lightcyan;
+}
+.job .single-post .btns li:hover a, .job .single-post .btns li:hover i {
+      color: black;
+}
+@media (max-width: 414px) {
+      .job .single-post .btns li {
+        margin-bottom: 5px;
+      }
+}
+
+/** Payment Page **/
+.single-price {
+      text-align: center;
+      border: 1px solid #eeeeee;
+}
+.single-price .price-top {
+      background-color: #fbfcff;
+      border-bottom: 1px solid #eeeeee;
+      padding: 30px 0px;
+}
+.single-price .price-top h4 {
+      font-weight: 600;
+}
+.single-price .price-bottom {
+      background-color: lightcyan;
+      margin: 0 45px 45px 45px;
+      padding: 35px;
+      -webkit-transition: all 0.3s ease 0s;
+      -moz-transition: all 0.3s ease 0s;
+      -o-transition: all 0.3s ease 0s;
+      transition: all 0.3s ease 0s
+}
+.single-price .price-bottom h1 {
+      font-size: 60px;
+      font-weight: 300;
+}
+.single-price .price-bottom .price {
+      font-size: 25px;
+      margin-top: 10px;
+      color: black;
+}
+.single-price .price-bottom .primary-btn {
+      border-radius: 0;
+      margin-top: 20px;
+      background: cornflowerblue;
+      color: whitesmoke;
+      text-transform: capitalize;
+      -webkit-transition: all 0.3s ease 0s;
+      -moz-transition: all 0.3s ease 0s;
+      -o-transition: all 0.3s ease 0s;
+      transition: all 0.3s ease 0s;
+}
+.single-price .price-bottom .primary-btn:hover {
+      border: 1px solid transparent;
+}
+@media (max-width: 1280px) {
+      .single-price .price-bottom {
+        margin: 0;
+      }
+}
+@media (max-width: 1024px) {
+      .single-price .price-bottom .primary-btn {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+}
+.single-price .lists {
+      padding: 40px 0 20 px 0;
+}
+.single-price .lists li {
+      margin-bottom: 15px;
+}
+.single-price:hover {
+      cursor: pointer;
+}
+.single-price:hover .price-bottom h1, .single-price:hover .price-bottom .price, .single-price:hover .price-bottom .time {
+      color: cornflowerblue;
+}
+@media (max-width: 960px) {
+      .single-price {
+        margin-bottom: 50px;
+      }
+}
+
+/** Pay Now Section **/
+.pay .container {
+      height: 100vh;
+}
+.pay .card {
+      border: none;
+} 
+.pay .card-header {
+      padding: .5rem 1rem;
+      margin-bottom: 0;
+      background-color: rgba(0, 0, 0, .03);
+      border-bottom: none;
+      width: 100%;
+
+} 
+.pay .btn-light:focus {
+      color: #212529;
+      background-color: #e2e6ea;
+      border-color: #dae0e5;
+      box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, .5)
+}
+.pay .form-control {
+      height: 50px;
+      border: 2px solid #eee;
+      border-radius: 6px;
+      font-size: 14px
+}
+.pay .form-control:focus {
+      color: #495057;
+      background-color: #fff;
+      border-color: #039be5;
+      outline: 0;
+      box-shadow: none
+}
+.pay .input {
+      position: relative
+}
+.pay .input i {
+      position: absolute;
+      top: 16px;
+      left: 11px;
+      color: #989898
+} 
+.pay .input input {
+      text-indent: 25px
+}
+.pay .card-text {
+      font-size: 13px;
+      margin-left: 6px
+}
+.pay .certificate-text {
+      font-size: 12px
+}
+.pay .billing {
+      font-size: 11px
+} 
+.pay .super-price {
+      top: 0px;
+      font-size: 22px
+}
+.pay .super-month {
+      font-size: 11px
+} 
+.pay .line {
+      color: #bfbdbd
+}
+.pay .free-button {
+      background: #1565c0;
+      height: 52px;
+      font-size: 15px;
+      border-radius: 8px
+}
+.pay .payment-card-body {
+      flex: 1 1 auto;
+      padding: 24px 1rem !important
+}

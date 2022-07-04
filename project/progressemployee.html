@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EasyJob</title>
+    <link rel="stylesheet" href="main.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js">
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js">
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+
+
+</head>
+
+<body>
+
+    <style>
+        body {
+            background-color: seashell;
+
+        }
+    </style>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <!-- <label><img src="logo.png"></label> -->
+        <label class="logo"><img src="assets/img/logo3.png.png">EasyJob</label>
+        <ul>
+            <li><a style="color:black;">Home</a></li>
+            <div class="dropdown">
+                <button class="dropbtn" id="userlink"></button>
+                <div class="dropdown-content">
+                    <a href="employeeProfile.html">Profile</a>
+                    <a href="JobStatus.html">Job Status</a>               
+                    <a href="ewallet.html">My Wallet</a>
+                    <a href="progressemployee.html">Progress</a>
+                </div>
+            </div>
+            <li><a style="text-decoration: none;" id="signoutlink">Sign Out</a></li>
+        </ul>
+    </nav>
+
+
+
+
+    <section class="currentjob">
+        <div class="container">
+            <div class="row justify-content-center d-flex">
+                <div class="col-lg-20 post-list">
+                    <div class="single-post d-flex flex-row">
+                        <div class="thumb">
+                            <div class="jobcurrent">
+
+                                <p>
+                                    <b>
+                                        <h3 style="color: rebeccapurple;">Your Current Job :</h3>
+
+                                    </b>
+                                </p>
+                                <div id="jobstatus">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="currentjobprogress">
+        <div class="container">
+            <div class="row justify-content-center d-flex">
+                <div class="col-lg-20 post-list">
+                    <div class="single-post d-flex flex-row">
+                        <div class="thumb">
+
+                            <div id="word">
+                                <p>
+                                    <b>
+                                        <h4>Update Your Work Progress.</h4>
+                                    </b>
+                                </p>
+                            </div>
+                            <link rel="stylesheet" href="progressemployee.css" type="text/css">
+                            <!-- <div id="progress">
+                                <div id="progress-bar"></div>
+                                <ul id="progress-num">
+                                    <li class="step active">0%</li>
+                                    <li class="step">25%</li>
+                                    <li class="step">50%</li>
+                                    <li class="step">75%</li>
+                                    <li class="step">100%</li>
+                                </ul>
+                            </div>-->
+
+                            <div id="progresspercent">
+                                0%
+                                <input type="radio" checked=true name="ut" value="0" id="s0">
+                                25%
+                                <input type="radio" name="ut" value="25" id="s1">
+                                50%
+                                <input type="radio" name="ut" value="50" id="s2">
+                                75%
+                                <input type="radio" name="ut" value="75" id="s3">
+                                100%
+                                <input type="radio" name="ut" value="100" id="s4">
+                            </div>
+
+                            <!--<button type="button" id="progress-prev" class="btn btn btn-outline-dark"
+                                disabled>Prev</button>
+                            <button type="button" id="progress-next" class="btn btn btn-outline-dark">Next</button> -->
+                            <button type="button" id="progress-submit" class="btn btn btn-outline-dark"
+                                onclick="submit()">Submit</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="progressemployee.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

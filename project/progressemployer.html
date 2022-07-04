@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EasyJob</title>
+    <link rel="stylesheet" href="main.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js">
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js">
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+
+</head>
+
+<body>
+
+    <style>
+        body {
+            background-color: seashell;
+
+        }
+    </style>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <!-- <label><img src="logo.png"></label> -->
+        <label class="logo"><img src="logo.png">EasyJob</label>
+        <ul>
+            <li><a style="color:black;" href="homeEmployer.html">Home</a></li>
+            <div class="dropdown">
+                <button class="dropbtn" id="userlink"></button>
+                <div class="dropdown-content">
+                    <a href="employerProfile.html">Profile</a>
+                    <a href="JobPage.html">Job Page</a>            
+                    <a href="ewallet.html">My Wallet</a>
+                    <a href="progressemployer.html">Progress</a>
+                </div>
+            </div>
+            <li><a style="text-decoration: none;" id="signoutlink">Sign Out</a></li>
+        </ul>
+    </nav>
+
+    <section class="currentjob">
+        <div class="container">
+            <div class="row justify-content-center d-flex">
+                <div class="col-lg-20 post-list">
+                    <div class="single-post d-flex flex-row">
+                        <div class="thumb">
+                            <div class="jobcurrent">
+
+                                <p>
+                                    <b>
+                                        <h3 style="color: rebeccapurple;">Ongoing Project :</h3>
+
+                                    </b>
+                                </p>
+
+                                <div id="ongoingproject">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <link rel="stylesheet" href="progressemployer.css" type="text/css">
+    <script src="progressemployer.js"></script>
+
+</body>
+
+</html>
